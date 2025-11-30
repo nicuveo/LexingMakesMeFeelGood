@@ -4,7 +4,7 @@ Have you ever read a take so wrong on social media that you have to make a toy l
 
 There are two wrong claims that this example addresses:
   - lexers can't easily handle nested comments;
-  - lexers can't handle expression within string literals.
+  - lexers can't handle expressions within string literals.
 
 This toy language trivially supports both despite using a lexer. Here's an example program:
 
@@ -37,7 +37,7 @@ expression
   | expression "*" expression
   | expression "/" expression
   | expression "%" expression
-  | QUOTE string_element+ QUOTE
+  | QUOTE string_element* QUOTE
 
 string_element
   : "{" expression "}"

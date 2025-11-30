@@ -80,18 +80,15 @@ string_expression :: { WithLocation Expression }
   : QUOTES many(string_element) QUOTES { WithLocation $1 $ StringExpression $2 }
 
 string_element :: { StringElement }
-  : "{" expression "}"  { Interpolation $2 }
-  | many1(char_literal) { StringLiteral (T.pack $1) }
+  : "{" expression "}" { Interpolation $2 }
+  | many(char_literal) { StringLiteral (T.pack $1) }
 
 char_literal :: { Char }
   : CHAR { getChar $1 }
 
 many(p)
-  :           { []         }
+  :           { [] }
   | many(p) p { $1 <> [$2] }
-
-many1(p)
-  : p many(p) { $1 : $2 }
 
 {
 
