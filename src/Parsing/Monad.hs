@@ -129,6 +129,8 @@ alexEscapedChar = do
     'r'  -> pure '\r'
     't'  -> pure '\t'
     '0'  -> pure '\0'
+    '{'  -> pure '{'
+    '}'  -> pure '}'
     '"'  -> pure '"'
     c    -> parseError $ "unrecognized escaped character \'" ++ [c] ++ "'"
 

@@ -21,8 +21,8 @@ tokens :-
   <string>           "{" { interpolationBegin }
   <interpolation>    "}" { interpolationEnd   }
 
-  <string> "\\" { stringEscape  }
-  <string> .    { stringLiteral }
+  <string> \\ { stringEscape  }
+  <string> .  { stringLiteral }
 
   <0, comment, interpolation> "/*" { commentBegin }
   <0, comment, interpolation> "*/" { commentEnd   }
