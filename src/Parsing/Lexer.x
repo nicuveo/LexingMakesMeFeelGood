@@ -16,18 +16,18 @@ import Representation.Token
 }
 
 tokens :-
-  <0,interpolation> \"  { stringBegin }
-  <string>          \"  { stringEnd   }
-  <string>          "{" { interpolationBegin }
-  <interpolation>   "}" { interpolationEnd   }
+  <0, interpolation> \"  { stringBegin }
+  <string>           \"  { stringEnd   }
+  <string>           "{" { interpolationBegin }
+  <interpolation>    "}" { interpolationEnd   }
 
   <string> "\\" { stringEscape  }
   <string> .    { stringLiteral }
 
   <0, comment, interpolation> "/*" { commentBegin }
   <0, comment, interpolation> "*/" { commentEnd   }
-  <comment> .          ;
-  <comment> \n         ;
+  <comment> .  ;
+  <comment> \n ;
 
   <0, interpolation> $white+ ;
 

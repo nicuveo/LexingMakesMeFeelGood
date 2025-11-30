@@ -49,10 +49,10 @@ string_element
 This interpreter uses [Alex](https://haskell-alex.readthedocs.io/en/latest/index.html) and [Happy](https://haskell-happy.readthedocs.io/en/latest/index.html). It makes uses of Alex's "start codes" feature to keep track of the current context: the inner state carries a stack of said start codes. It uses this to restrict some lexing rules to a given context, like so:
 
 ```
-<0,interpolation> \"  { stringBegin }
-<string>          \"  { stringEnd   }
-<string>          "{" { interpolationBegin }
-<interpolation>   "}" { interpolationEnd   }
+<0, interpolation> \"  { stringBegin }
+<string>           \"  { stringEnd   }
+<string>           "{" { interpolationBegin }
+<interpolation>    "}" { interpolationEnd   }
 
 <0, comment, interpolation> "/*" { commentBegin }
 <0, comment, interpolation> "*/" { commentEnd   }
