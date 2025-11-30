@@ -21,7 +21,7 @@ ghc-options:
   - -Wpartial-fields
   - -Wredundant-constraints
   - -Wtabs
-  - -Wno-unused-do-bind
+  - -Wunused-packages
   - -fhide-source-paths
   - -foptimal-applicative-do
   - -funbox-small-strict-fields
@@ -53,13 +53,9 @@ dependencies:
   - extra
   - hashable
   - lens
-  - monad-control
   - monad-loops
   - mtl
-  - ordered-containers
-  - template-haskell
   - text
-  - text-builder
   - transformers
   - unordered-containers
 

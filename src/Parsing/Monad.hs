@@ -1,5 +1,4 @@
 {-# LANGUAGE TemplateHaskell #-}
-{-# OPTIONS_GHC -Wno-redundant-constraints #-}
 
 module Parsing.Monad where
 

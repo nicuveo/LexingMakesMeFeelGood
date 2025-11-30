@@ -55,7 +55,7 @@ executable poc
       StrictData
       TypeFamilies
       ViewPatterns
-  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wpartial-fields -Wredundant-constraints -Wtabs -Wno-unused-do-bind -fhide-source-paths -foptimal-applicative-do -funbox-small-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wpartial-fields -Wredundant-constraints -Wtabs -Wunused-packages -fhide-source-paths -foptimal-applicative-do -funbox-small-strict-fields -threaded -rtsopts -with-rtsopts=-N
   build-tools:
       alex
     , happy
@@ -66,13 +66,9 @@ executable poc
     , extra
     , hashable
     , lens
-    , monad-control
     , monad-loops
     , mtl
-    , ordered-containers
-    , template-haskell
     , text
-    , text-builder
     , transformers
     , unordered-containers
   default-language: GHC2021
