@@ -41,7 +41,7 @@ expression
 
 string_element
   : "{" expression "}"
-  | CHAR+
+  | CHAR
 ```
 
 ## Lexing

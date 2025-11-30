@@ -77,14 +77,11 @@ expression :: { WithLocation Expression }
   | string_expression         { $1 }
 
 string_expression :: { WithLocation Expression }
-  : QUOTES many(string_element) QUOTES { WithLocation $1 $ StringExpression $2 }
+  : QUOTES many(string_element) QUOTES { WithLocation $1 $ StringExpression (fuseString $2) }
 
 string_element :: { StringElement }
   : "{" expression "}" { Interpolation $2 }
-  | many(char_literal) { StringLiteral (T.pack $1) }
-
-char_literal :: { Char }
-  : CHAR { getChar $1 }
+  | CHAR               { StringLiteral $ T.singleton $ getChar $1 }
 
 many(p)
   :           { [] }
@@ -116,5 +113,16 @@ binaryExpr
   -> WithLocation Expression
   -> WithLocation Expression
 binaryExpr cons exp1 exp2 = WithLocation (_location exp1) (cons exp1 exp2)
+
+fuseString
+  :: [StringElement]
+  -> [StringElement]
+fuseString = \case
+  [] -> []
+  (x:xs) -> case (x, fuseString xs) of
+    (StringLiteral s1, (StringLiteral s2:elements)) ->
+      StringLiteral (s1 <> s2) : elements
+    (e1, es) ->
+      e1 : es
 
 }
