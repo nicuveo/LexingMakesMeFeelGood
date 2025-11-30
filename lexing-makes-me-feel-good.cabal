@@ -1,0 +1,78 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           lexing-makes-me-feel-good
+version:        0.0.0.1
+homepage:       https://github.com/nicuveo/LexingMakesMeFeelGood#readme
+bug-reports:    https://github.com/nicuveo/LexingMakesMeFeelGood/issues
+author:         Antoine Leblanc
+maintainer:     nicuveo@gmail.com
+copyright:      2025 Antoine Leblanc
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/nicuveo/LexingMakesMeFeelGood
+
+executable poc
+  main-is: Main.hs
+  other-modules:
+      Parsing.Lexer
+      Parsing.Monad
+      Parsing.Parser
+      Prelude
+      Representation.AST
+      Representation.Location
+      Representation.Token
+      Paths_lexing_makes_me_feel_good
+  autogen-modules:
+      Paths_lexing_makes_me_feel_good
+  hs-source-dirs:
+      src
+  default-extensions:
+      AllowAmbiguousTypes
+      ApplicativeDo
+      BlockArguments
+      DataKinds
+      DefaultSignatures
+      DerivingVia
+      FunctionalDependencies
+      GADTs
+      LambdaCase
+      MultiWayIf
+      NoImplicitPrelude
+      OverloadedStrings
+      PackageImports
+      RecordWildCards
+      RoleAnnotations
+      StrictData
+      TypeFamilies
+      ViewPatterns
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wpartial-fields -Wredundant-constraints -Wtabs -Wno-unused-do-bind -fhide-source-paths -foptimal-applicative-do -funbox-small-strict-fields -threaded -rtsopts -with-rtsopts=-N
+  build-tools:
+      alex
+    , happy
+  build-depends:
+      array
+    , base
+    , containers
+    , extra
+    , hashable
+    , lens
+    , monad-control
+    , monad-loops
+    , mtl
+    , ordered-containers
+    , template-haskell
+    , text
+    , text-builder
+    , transformers
+    , unordered-containers
+  default-language: GHC2021

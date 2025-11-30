@@ -1,0 +1,14 @@
+snapshot:
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/23/9.yaml
+
+packages:
+  - .
+
+extra-deps:
+  - graphwiz-1.0.0
+  - alex-3.5.3.0
+  - hip-1.5.6.0
+  - repa-3.4.2.0
+
+ghc-options:
+  hip: "-fsimpl-tick-factor=1000"
